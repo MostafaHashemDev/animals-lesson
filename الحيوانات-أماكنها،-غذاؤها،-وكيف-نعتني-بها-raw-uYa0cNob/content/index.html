@@ -21,15 +21,8 @@ sandbox sha: f6257b85c72be8fc2cd9ef887048e49cef6b15e8
 
     <style>
       html, body { direction: rtl !important; }
-      a[href*="articulate.com"],
-      [class*="watermark"],
-      [class*="powered-by"],
-      [class*="poweredBy"],
-      [data-articulate] {
+      a[href*="articulate.com"] {
         display: none !important;
-        visibility: hidden !important;
-        opacity: 0 !important;
-        pointer-events: none !important;
       }
     </style>
   </head>
@@ -45,8 +38,8 @@ sandbox sha: f6257b85c72be8fc2cd9ef887048e49cef6b15e8
       document.documentElement.setAttribute("lang", "ar");
 
       function cleanAndLocalize(root = document) {
-        // 1. إزالة رابط Articulate والعلامة المائية فقط دون المساس بمحتوى الدرس
-        root.querySelectorAll('a[href*="articulate.com"], [class*="watermark"], [class*="powered-by"], [class*="poweredBy"], [data-articulate]').forEach(el => {
+        // 1. إخفاء رابط وعبارة Powered by Articulate فقط
+        root.querySelectorAll('a[href*="articulate.com"]').forEach(el => {
           el.style.setProperty("display", "none", "important");
         });
         root.querySelectorAll('div, span, a, footer, p').forEach(el => {
